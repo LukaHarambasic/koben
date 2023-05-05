@@ -4,7 +4,7 @@
 // Mods: see README.md
 // Sources: see README.md
 
-import { Game, AUTO, Scale } from 'phaser'
+import { Game, WEBGL } from 'phaser'
 import { LoadingScene } from './scenes/LoadingScene'
 import { MenuScene } from './scenes/MenuScene'
 import { GameScene } from './scenes/GameScene'
@@ -15,17 +15,19 @@ import './style.css'
 const canvasElement = document.getElementById('game')
 
 export const CONFIG = {
-  type: AUTO,
+  type: WEBGL,
   width: 640,
-  height: window.innerHeight,
+  height: 960,
   canvas: canvasElement,
-  scale: {
-    autoCenter: Scale.CENTER_BOTH,
-  },
+  backgroundColor: '#4488aa',
+  // Maybe enable if needed, but centering with CSS seems to work better
+  // scale: {
+  //   autoCenter: Scale.CENTER_BOTH,
+  // },
   physics: {
     default: 'arcade',
     arcade: {
-      //debug: true,
+      debug: true,
       gravity: {
         x: 0,
         y: 0,
@@ -33,7 +35,7 @@ export const CONFIG = {
     },
   },
   // scene: [LoadingScene, MenuScene, GameScene, HighscoreScene, CreditScene],
-  scene: [GameScene],
+  scene: [LoadingScene, GameScene],
 }
 
 new Game(CONFIG)

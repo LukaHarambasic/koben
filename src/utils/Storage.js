@@ -4,7 +4,7 @@ export class Storage {
     switch (difficultyLevel) {
       case 'medium':
         difficulty = {
-          speed: 3,
+          speed: 6,
         }
         break
       case 'hard':
@@ -14,12 +14,12 @@ export class Storage {
         break
       case 'student':
         difficulty = {
-          speed: 3,
+          speed: 1,
         }
         break
       default: // easy
         difficulty = {
-          speed: 3,
+          raftVelocity: 10,
         }
     }
     localStorage.setItem('difficulty', JSON.stringify(difficulty))

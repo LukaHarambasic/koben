@@ -22,5 +22,7 @@ export class GameScene extends Scene {
     // paddle.setBlendMode('SCREEN') // set a WebGL blend mode
   }
 
-  update() {}
+  update() {
+    this.raft.update()
+  }
 }

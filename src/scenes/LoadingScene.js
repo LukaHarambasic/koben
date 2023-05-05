@@ -1,4 +1,5 @@
 import { Scene } from 'phaser'
+import { Storage } from '../utils/Storage'
 
 export class LoadingScene extends Scene {
   constructor() {
@@ -7,7 +8,8 @@ export class LoadingScene extends Scene {
 
   preload() {
     // global asset loading
-    // this.load.image('background', './graphics/background.png')
+    this.load.image('canal', './graphics/canal.png')
+    this.load.image('raft', './graphics/raft.png')
     // this.load.image('tap', './graphics/tap.png')
     // this.load.image('counter', './graphics/counter.png')
     // this.load.image('bretzel', './graphics/bretzel.png')
@@ -44,7 +46,9 @@ export class LoadingScene extends Scene {
     //   frameRate: 3,
     //   repeat: -1,
     // })
-
+    //TODO remove later
+    this.scene.start('gameScene')
+    Storage.difficulty = 'test'
     this.input.keyboard.on(
       'keydown',
       () => {
