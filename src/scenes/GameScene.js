@@ -1,4 +1,6 @@
 import { Scene } from 'phaser'
+import { CONFIG } from '../main'
+import { Raft } from '../prefabs/Raft'
 
 export class GameScene extends Scene {
   constructor() {
@@ -6,8 +8,10 @@ export class GameScene extends Scene {
   }
 
   create() {
-    this.leftBarrier = this.physics.add.sprite(32, centerY, 'paddle').setOrigin(0.5)
-    this.rightBarrier = this.physics.add.sprite(32, centerY, 'paddle').setOrigin(0.5)
+    this.canal = this.add.tileSprite(0, 0, CONFIG.width, CONFIG.height, 'canal').setOrigin(0, 0)
+    this.physics.world.setBounds(64, 0, CONFIG.width - 64 * 2, CONFIG.height)
+
+    this.raft = new Raft(this)
     // paddle.setCollideWorldBounds(true)
     // paddle.setBounce(0.5)
     // paddle.setImmovable()
