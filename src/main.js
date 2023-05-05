@@ -13,15 +13,10 @@ import { Game, CANVAS } from 'phaser'
 
 const canvasElement = document.getElementById('game')
 
-export const THEME = {
-  width: 640,
-  height: 480,
-}
-
 const config = {
   type: CANVAS,
-  width: THEME.width,
-  height: THEME.height,
+  width: 640,
+  height: 480,
   canvas: canvasElement,
   scene: [TitleScene, MenuScene, GameScene, HighscoreScene],
 }

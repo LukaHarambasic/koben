@@ -1,4 +1,24 @@
 export class Storage {
+  static getDifficulty(difficulty) {
+    switch (difficulty) {
+      case 'medium':
+        return {
+          speed: 3,
+        }
+      case 'hard':
+        return {
+          speed: 3,
+        }
+      case 'student':
+        return {
+          speed: 3,
+        }
+      default: // easy
+        return {
+          speed: 3,
+        }
+    }
+  }
 
   static set currentScore(value) {
     localStorage.setItem('currentScore', value)

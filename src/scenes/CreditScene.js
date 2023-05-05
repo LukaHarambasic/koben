@@ -1,10 +1,9 @@
 import { Scene } from 'phaser'
 
-export class HighscoreScene extends Scene {
+export class CreditScene extends Scene {
   constructor() {
-    super('highscoreScene')
+    super('creditScene')
   }
 
-  create() {
-  }
+  create() {}
 }
