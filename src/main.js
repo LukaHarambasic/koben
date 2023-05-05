@@ -1,24 +1,39 @@
-// Title: Beer Patrol
+// Title: Koben
 // Author: Luka Harambasic
-// Hours: 14
+// Hours: 0.5 +
 // Mods: see README.md
 // Sources: see README.md
 
-import { TitleScene } from './scenes/TitleScene'
+import { Game, AUTO, Scale } from 'phaser'
+import { LoadingScene } from './scenes/LoadingScene'
 import { MenuScene } from './scenes/MenuScene'
 import { GameScene } from './scenes/GameScene'
 import { HighscoreScene } from './scenes/HighscoreScene'
+import { CreditScene } from './scenes/CreditScene'
 import './style.css'
-import { Game, CANVAS } from 'phaser'
 
 const canvasElement = document.getElementById('game')
 
-const config = {
-  type: CANVAS,
+export const CONFIG = {
+  type: AUTO,
   width: 640,
-  height: 480,
+  height: window.innerHeight,
   canvas: canvasElement,
-  scene: [TitleScene, MenuScene, GameScene, HighscoreScene],
+  scale: {
+    autoCenter: Scale.CENTER_BOTH,
+  },
+  physics: {
+    default: 'arcade',
+    arcade: {
+      //debug: true,
+      gravity: {
+        x: 0,
+        y: 0,
+      },
+    },
+  },
+  // scene: [LoadingScene, MenuScene, GameScene, HighscoreScene, CreditScene],
+  scene: [GameScene],
 }
 
-new Game(config)
+new Game(CONFIG)

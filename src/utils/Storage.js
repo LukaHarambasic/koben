@@ -1,23 +1,36 @@
 export class Storage {
-  static getDifficulty(difficulty) {
-    switch (difficulty) {
+  static set difficulty(difficultyLevel) {
+    let difficulty
+    switch (difficultyLevel) {
       case 'medium':
-        return {
+        difficulty = {
           speed: 3,
         }
+        break
       case 'hard':
-        return {
+        difficulty = {
           speed: 3,
         }
+        break
       case 'student':
-        return {
+        difficulty = {
           speed: 3,
         }
+        break
       default: // easy
-        return {
+        difficulty = {
           speed: 3,
         }
     }
+    localStorage.setItem('difficulty', JSON.stringify(difficulty))
+  }
+
+  static get difficulty() {
+    const difficulty = JSON.parse(localStorage.getItem('difficulty'))
+    if (!difficulty) {
+      throw new Error('Difficulty not set')
+    }
+    return difficulty
   }
 
   static set currentScore(value) {

@@ -1,9 +1,8 @@
 import { Scene } from 'phaser'
-import { THEME } from '../main'
 
-export class TitleScene extends Scene {
+export class LoadingScene extends Scene {
   constructor() {
-    super('titleScene')
+    super('loadingScene')
   }
 
   preload() {
@@ -21,7 +20,20 @@ export class TitleScene extends Scene {
   }
 
   create() {
-    console.log('titleScene')
+    console.log('loadingScene')
+    // loading bar
+    // see: https://rexrainbow.github.io/phaser3-rex-notes/docs/site/loader/
+    let loadingBar = this.add.graphics()
+    this.load.on('progress', (value) => {
+      console.log(value)
+      loadingBar.clear() // reset fill/line style
+      loadingBar.fillStyle(0xffffff, 1) // (color, alpha)
+      // TODO fix
+      // loadingBar.fillRect(0, centerY, w * value, 5) // (x, y, w, h)
+    })
+    this.load.on('complete', () => {
+      loadingBar.destroy()
+    })
     // this.anims.create({
     //   key: 'empty',
     //   frames: this.anims.generateFrameNames('beer', {
