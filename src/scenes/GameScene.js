@@ -9,12 +9,14 @@ import { Style } from '../utils/Style'
 export class GameScene extends Scene {
   constructor() {
     super('gameScene')
+    this.startTime = 0
   }
 
   create() {
     console.log('create game scene')
-    this.startTime = 0
     this.isGameOver = false
+    this.isStartTimeSet = false
+
     this.startTime = this.time.now
 
     // Background
@@ -97,8 +99,18 @@ export class GameScene extends Scene {
 
   _updateScore() {
     if (this.isGameOver) return
-    const elapsed = this._getCurrentScore()
-    this.scoreText.setText(formatTime(elapsed))
+
+    if (!this.isStartTimeSet) {
+      this.startTime = this.time.now
+      this.isStartTimeSet = true
+    }
+    this._calculateCurrentScore()
+    this.scoreText.setText(formatTime(this.score))
+  }
+
+  _calculateCurrentScore() {
+    if (this.isGameOver) return
+    this.score = this.time.now - this.startTime
   }
 
   _handleDifficulty() {
@@ -143,7 +155,6 @@ export class GameScene extends Scene {
     this.isGameOver = true
     Actions.Call(this.shipGroup.getChildren(), (ship) => ship.stop(), this)
     this.raft.stop()
-    this.score = this._getCurrentScore()
     Storage.currentScore = this.score
     Storage.tryHighscore(this.score)
     this._showGameOver()
@@ -173,10 +184,6 @@ export class GameScene extends Scene {
 
     group.addMultiple([overlay, title, scoreText, scoreValue, navigationText])
     group.setDepth(100)
-  }
-
-  _getCurrentScore() {
-    return this.time.now - this.startTime
   }
 
   _gameOverInput() {
