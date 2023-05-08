@@ -4,6 +4,7 @@ import { Raft } from '../prefabs/Raft'
 import { Ship } from '../prefabs/Ship'
 import { Storage } from '../utils/Storage'
 import { formatTime } from '../utils/Helpers'
+import { Style } from '../utils/Style'
 
 export class GameScene extends Scene {
   constructor() {
@@ -154,29 +155,26 @@ export class GameScene extends Scene {
 
     // TODO get text style form helper
     // TODO add restart button
-    const xPosition = 100
-    const margin = 10
-    const title = this.add
-      .text(CONFIG.width / 2, xPosition, 'Game Over', {
-        font: '48px Arial',
-        fill: '#ffffff',
-      })
-      .setOrigin(0.5, 0.5)
+    const title = this.add.text(CONFIG.width / 2, 200, 'Game Over', Style.title()).setOrigin(0.5, 0.5)
 
     const scoreText = this.add
-      .text(CONFIG.width / 2, xPosition + margin + title.height, 'SCORE', {
+      .text(CONFIG.width / 2, 260, 'SCORE', {
         font: '24px Arial',
         fill: '#ffffff',
       })
       .setOrigin(0.5, 0.5)
     const scoreValue = this.add
-      .text(CONFIG.width / 2, xPosition + margin + title.height + 2 + scoreText.height, formatTime(this.score), {
+      .text(CONFIG.width / 2, 290, formatTime(this.score), {
         font: '24px Arial',
         fill: '#ffffff',
       })
       .setOrigin(0.5, 0.5)
 
-    group.addMultiple([overlay, title, scoreText, scoreValue])
+    const navigationText = this.add
+      .text(CONFIG.width / 2, 400, 'Press (M) for Menu or (H) for Highscore.', Style.instruction())
+      .setOrigin(0.5, 0.5)
+
+    group.addMultiple([overlay, title, scoreText, scoreValue, navigationText])
     group.setDepth(100)
   }
 

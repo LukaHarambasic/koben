@@ -6,6 +6,7 @@ export class Style {
   static onPrimary = '#000000'
   static dark = '#000000'
   static onDark = '#FFFFFF'
+  static light = '#FFFFFF'
   static fontFamily = 'Arial, sans-serif'
   static fontSizes = {
     title: '32px',
@@ -24,8 +25,28 @@ export class Style {
       backgroundColor: Style.primary,
       color: Style.onPrimary,
       align: 'center',
-      padding: Style.textPadding,
-      fixedWidth: 0,
+    }
+  }
+
+  static title(hasBackground = false) {
+    return {
+      fontFamily: Style.fontFamily,
+      fontSize: Style.fontSizes.title,
+      backgroundColor: hasBackground ? Style.primary : null,
+      color: hasBackground ? Style.onPrimary : Style.light,
+      align: 'center',
+      padding: hasBackground ? Style.padding.default : 0,
+    }
+  }
+
+  static instruction(hasBackground = true) {
+    return {
+      fontFamily: Style.fontFamily,
+      fontSize: Style.fontSizes.small,
+      backgroundColor: hasBackground ? Style.dark : null,
+      color: hasBackground ? Style.onDark : Style.light,
+      align: 'center',
+      padding: hasBackground ? Style.padding.small : 0,
     }
   }
 }
