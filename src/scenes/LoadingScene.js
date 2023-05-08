@@ -23,12 +23,10 @@ export class LoadingScene extends Scene {
   }
 
   create() {
-    console.log('loadingScene')
     // loading bar
     // see: https://rexrainbow.github.io/phaser3-rex-notes/docs/site/loader/
     let loadingBar = this.add.graphics()
     this.load.on('progress', (value) => {
-      console.log(value)
       loadingBar.clear() // reset fill/line style
       loadingBar.fillStyle(0xffffff, 1) // (color, alpha)
       // TODO fix

@@ -5,7 +5,6 @@ import { Storage } from '../utils/Storage'
 export class Ship extends Physics.Arcade.Sprite {
   constructor(scene, x = CONFIG.width / 2, texture) {
     super(scene, x, -64, texture)
-    console.log('Ship')
 
     this.parentScene = scene
     this.parentScene.add.existing(this)
@@ -29,7 +28,6 @@ export class Ship extends Physics.Arcade.Sprite {
   update() {
     if (this.isGameOver) return
     if (this.y > CONFIG.height + 64) {
-      console.log('destroy')
       this.destroy()
     }
   }

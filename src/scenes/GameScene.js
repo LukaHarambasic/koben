@@ -93,25 +93,43 @@ export class GameScene extends Scene {
 
   _handleDifficulty() {
     Storage.setDifficulty({ shipVelocity: Storage.difficulty.shipVelocityInitial })
-    this.dificultyTimer = this.time.addEvent({
+    this.time.addEvent({
       delay: Storage.difficulty.difficultyChangeRate,
       callback: this._increaseDifficulty,
       callbackScope: this,
       loop: true,
     })
+    this.textDifficultyIncrease = this.add
+      .text(CONFIG.width / 2, 40, 'FASTER', { font: '24px Arial', fill: '#ffffff' })
+      .setOrigin(0.5, 0.5)
+      .setDepth(1)
+      .setAlpha(0)
   }
 
   _increaseDifficulty() {
     if (this.isGameOver) return
-    console.log('increase difficulty', Storage.difficulty.shipSpawnRate, Storage.difficulty.shipSpawnRateIncreaseFactor)
     Storage.setDifficulty({
       shipVelocity: Storage.difficulty.shipVelocity * Storage.difficulty.shipVelocityIncreaseFactor,
       shipSpawnRate: Storage.difficulty.shipSpawnRate * Storage.difficulty.shipSpawnRateIncreaseFactor,
     })
+    this.textDifficultyIncrease.setAlpha(1)
+    this.time.delayedCall(
+      2000,
+      () => {
+        this.tweens.add({
+          targets: this.textDifficultyIncrease,
+          alpha: 0,
+          duration: 1000,
+          ease: 'Linear',
+          onComplete: () => {},
+        })
+      },
+      [],
+      this,
+    )
   }
 
   _setGameOver() {
-    console.log('game over')
     this.isGameOver = true
     Actions.Call(this.shipGroup.getChildren(), (ship) => ship.stop(), this)
     this.raft.stop()
@@ -150,7 +168,7 @@ export class GameScene extends Scene {
       .setOrigin(0.5, 0.5)
 
     group.addMultiple([overlay, title, scoreText, scoreValue])
-    group.setDepth(1)
+    group.setDepth(100)
   }
 
   _getCurrentScore() {
@@ -159,7 +177,6 @@ export class GameScene extends Scene {
 
   _gameOverInput() {
     if (!this.isGameOver) return
-    console.log('game over input')
     if (Input.Keyboard.JustDown(this.keyH)) {
       this.scene.start('highscoreScene')
     }
