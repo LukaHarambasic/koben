@@ -58,7 +58,12 @@ export class GameScene extends Scene {
 
   _spawnShips() {
     if (this.isGameOver) return
-    const ship = new Ship(this, PMath.Between(64, CONFIG.playableArea), 'boat')
+    // I hate this sip spwan x position, works for now, might change later
+    const ship = new Ship(
+      this,
+      PMath.Between(CONFIG.canal + CONFIG.shipWidth / 2, CONFIG.playableArea + CONFIG.canal - CONFIG.shipWidth / 2),
+      'boat',
+    )
     this.shipGroup.add(ship)
     this._randomShipSpawn(10)
     this._randomShipSpawn(10)
@@ -70,7 +75,11 @@ export class GameScene extends Scene {
     if (this.isGameOver) return
     const random = PMath.Between(1, 100)
     if (random <= chance) {
-      const ship = new Ship(this, PMath.Between(64, CONFIG.playableArea), 'boat')
+      const ship = new Ship(
+        this,
+        PMath.Between(CONFIG.canal + CONFIG.shipWidth / 2, CONFIG.playableArea + CONFIG.canal - CONFIG.shipWidth / 2),
+        'boat',
+      )
       this.shipGroup.add(ship)
     }
   }

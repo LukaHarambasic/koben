@@ -14,10 +14,8 @@ export class Ship extends Physics.Arcade.Sprite {
 
     this.isGameOver = false
 
-    // TODO something is off here, ships aren't moving - works without which is fine for now
-    // this.setMaxVelocity(0, this.difficulty.shipMaxVelocityY)
-    const speedVariance = Math.Between(0, 100)
     this.setAngle(180)
+    const speedVariance = Math.Between(0, 100)
     this.velocity = this.difficulty.shipVelocity + speedVariance
     this.setVelocityY(this.velocity)
     this.setImmovable()

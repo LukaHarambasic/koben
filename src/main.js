@@ -18,7 +18,9 @@ export const CONFIG = {
   type: WEBGL,
   width: 640,
   height: 720,
+  canal: 64,
   playableArea: 640 - 64 * 2,
+  shipWidth: 24,
   canvas: canvasElement,
   backgroundColor: '#4488aa',
   // Maybe enable if needed, but centering with CSS seems to work better
