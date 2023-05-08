@@ -10,7 +10,6 @@ export class HighscoreScene extends Scene {
   }
 
   create() {
-    console.log('HighscoreScene')
     this.add.text(CONFIG.width / 2, 50, 'Highscore', Style.title()).setOrigin(0.5, 0.5)
 
     this.add.text(CONFIG.width / 2, 120, 'YOUR SCORE', Style.subtitle()).setOrigin(0.5, 0.5)
@@ -19,7 +18,18 @@ export class HighscoreScene extends Scene {
     this.add
       .text(CONFIG.width / 2, CONFIG.height - 50, 'Press (M) for Menu or (R) to restart.', Style.instruction())
       .setOrigin(0.5, 0.5)
+    this._addHighscoreValues()
 
+    // Input
+    this.keyM = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.M)
+    this.keyR = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.R)
+  }
+
+  update() {
+    this._handleInput()
+  }
+
+  _addHighscoreValues() {
     const highscore = Storage.highscore
     const position = highscore.indexOf(Storage.currentScore)
     highscore.forEach((value, i) => {
@@ -32,14 +42,6 @@ export class HighscoreScene extends Scene {
         this.add.text(CONFIG.width / 2, y, text, Style.highscoreItem()).setOrigin(0.5)
       }
     })
-
-    // Input
-    this.keyM = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.M)
-    this.keyR = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.R)
-  }
-
-  update() {
-    this._handleInput()
   }
 
   _handleInput() {

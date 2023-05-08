@@ -46,16 +46,7 @@ export class LoadingScene extends Scene {
     //   repeat: -1,
     // })
     //TODO remove later
-    this.scene.start('gameScene')
     Storage.setDifficulty({})
-    this.input.keyboard.on(
-      'keydown',
-      () => {
-        const randomNumber = Math.floor(Math.random() * 4) + 1
-        this.sound.play(`sfx${randomNumber}`)
-        this.scene.start('menuScene')
-      },
-      this,
-    )
+    this.scene.start('menuScene')
   }
 }

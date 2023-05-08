@@ -37,8 +37,7 @@ export const CONFIG = {
       },
     },
   },
-  // scene: [LoadingScene, MenuScene, GameScene, HighscoreScene, CreditScene],
-  scene: [LoadingScene, GameScene, HighscoreScene, CreditScene],
+  scene: [LoadingScene, MenuScene, GameScene, HighscoreScene, CreditScene],
 }
 
 new Game(CONFIG)
