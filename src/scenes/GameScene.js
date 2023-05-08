@@ -18,20 +18,34 @@ export class GameScene extends Scene {
 
     // Raft
     this.raft = new Raft(this)
-    new Ship(this, Math.Between(0, CONFIG.playableArea), 'boat')
 
     // Ships
     this.shipGroup = this.add.group({
       runChildUpdate: true,
     })
-    this.time.delayedCall(2500, () => {
-      console.log('delaycall')
-      const ship = new Ship(this, Math.Between(0, CONFIG.playableArea), 'boat')
-      this.shipGroup.add(ship)
+    this._spawnShip()
+    this.timer = this.time.addEvent({
+      delay: 3000,
+      callback: this._spawnShip,
+      callbackScope: this,
+      loop: true,
     })
   }
 
   update() {
     this.raft.update()
+    this.physics.world.collide(this.raft, this.shipGroup, this._gameOver, null, this)
+  }
+
+  _spawnShip() {
+    console.log('spawn ship')
+    const ship = new Ship(this, Math.Between(64, CONFIG.playableArea), 'boat')
+    this.shipGroup.add(ship)
+  }
+
+  _gameOver() {
+    console.log('game over')
+    // TODO add animation, sound and other effects
+    this.scene.start('highscoreScene')
   }
 }

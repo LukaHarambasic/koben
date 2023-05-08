@@ -10,12 +10,14 @@ export class Raft extends Physics.Arcade.Sprite {
     this.parentScene = scene
     this.parentScene.add.existing(this)
     this.parentScene.physics.add.existing(this)
+
     this.difficulty = Storage.difficulty
 
     this.setMaxVelocity(200, 0)
     this.setVelocityX(0)
     this.setVelocityY(0)
     this.setCollideWorldBounds(true)
+    this.setImmovable()
 
     this.cursors = scene.input.keyboard.createCursorKeys()
   }

@@ -6,5 +6,6 @@ export class HighscoreScene extends Scene {
   }
 
   create() {
+    console.log('HighscoreScene')
   }
 }
