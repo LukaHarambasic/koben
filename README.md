@@ -26,7 +26,7 @@
 - [] Structure and Design (75 points)
 
   - [x] Use multiple Scene classes (dictated by your game's style) (5)
-  - [] Properly transition between Scenes and allow the player to restart w/out having to reload the page (5)
+  - [x] Properly transition between Scenes and allow the player to restart w/out having to reload the page (5)
   - [] Include in-game instructions using text or other means (e.g., tooltips, tutorial, diagram, etc.) (5)
   - [x] Have some form of player input/control appropriate to your game design (5)
   - [] Include one or more animated characters that use a texture atlas (5)

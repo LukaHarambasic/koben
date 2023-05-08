@@ -14,17 +14,33 @@ export class Style {
     small: '16px',
   }
   static padding = {
-    default: 8,
-    small: 4,
+    default: 16,
+    small: 8,
   }
 
   static body() {
     return {
       fontFamily: Style.fontFamily,
-      fontSize: Style.fontSizes.title,
+      fontSize: Style.fontSizes.body,
       backgroundColor: Style.primary,
       color: Style.onPrimary,
       align: 'center',
+    }
+  }
+
+  static bodyLong() {
+    return {
+      fontFamily: Style.fontFamily,
+      fontSize: Style.fontSizes.body,
+      backgroundColor: Style.primary,
+      color: Style.onPrimary,
+      align: 'left',
+      fixedWidth: 520,
+      wordWrap: {
+        width: 520 - Style.padding.default * 2,
+        useAdvancedWrap: true,
+      },
+      padding: Style.padding.default,
     }
   }
 
