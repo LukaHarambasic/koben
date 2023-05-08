@@ -22,16 +22,13 @@ export class HighscoreScene extends Scene {
 
     const highscore = Storage.highscore
     const position = highscore.indexOf(Storage.currentScore)
-    console.log(Storage.currentScore, highscore, position)
     highscore.forEach((value, i) => {
       const y = 200 + i * 35
       const text = `${i + 1}. ${formatTime(value)}`
       const isNewHighscore = i === position && Storage.currentScore > 0
       if (isNewHighscore) {
-        console.log('isNewHighscore', isNewHighscore)
         this.add.text(CONFIG.width / 2, y, `>> ${text} <<`, Style.highscoreItem(true)).setOrigin(0.5)
       } else {
-        console.log('no new hs')
         this.add.text(CONFIG.width / 2, y, text, Style.highscoreItem()).setOrigin(0.5)
       }
     })

@@ -1,7 +1,9 @@
 export function formatTime(initialMilliseconds) {
   const seconds = Math.floor(initialMilliseconds / 1000)
-  const secondsPadding = seconds < 10 ? seconds.toString().padStart(1, '0') : seconds
-  const milliseconds = Math.floor(initialMilliseconds % 100)
-  const millisecondsPadding = milliseconds < 10 ? milliseconds.toString().padStart(1, '0') : milliseconds
+  const secondsPadding = seconds < 10 ? `0${seconds}` : seconds
+  const milliseconds = Math.floor(initialMilliseconds % 1000)
+  const millisecondsPadding =
+    milliseconds < 10 ? `00${milliseconds}` : milliseconds < 100 ? `0${milliseconds}` : milliseconds.toString()
+
   return `${secondsPadding}.${millisecondsPadding}`
 }
