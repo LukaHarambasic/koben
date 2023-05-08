@@ -28,7 +28,7 @@ export const CONFIG = {
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true,
+      // debug: true,
       gravity: {
         x: 0,
         y: 0,
@@ -36,7 +36,7 @@ export const CONFIG = {
     },
   },
   // scene: [LoadingScene, MenuScene, GameScene, HighscoreScene, CreditScene],
-  scene: [LoadingScene, GameScene],
+  scene: [LoadingScene, GameScene, HighscoreScene, CreditScene],
 }
 
 new Game(CONFIG)

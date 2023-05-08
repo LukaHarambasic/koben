@@ -1,34 +1,21 @@
 export class Storage {
-  static set difficulty(difficultyLevel) {
-    let difficulty
-    switch (difficultyLevel) {
-      case 'medium':
-        difficulty = {
-          speed: 6,
-          shipVelocity: 60,
-          shipMaxVelocity: 60,
-        }
-        break
-      case 'hard':
-        difficulty = {
-          speed: 3,
-          shipVelocity: 60,
-          shipMaxVelocity: 60,
-        }
-        break
-      case 'student':
-        difficulty = {
-          speed: 1,
-          shipVelocity: 60,
-          shipMaxVelocity: 60,
-        }
-        break
-      default: // easy
-        difficulty = {
-          raftVelocity: 10,
-          shipVelocity: 100,
-          shipMaxVelocity: 150,
-        }
+  static setDifficulty({
+    difficultyChangeRate,
+    raftVelocity,
+    shipVelocity,
+    shipVelocityInitial,
+    shipVelocityIncreaseFactor,
+    shipSpawnRate,
+    shipSpawnRateIncreaseFactor,
+  }) {
+    const difficulty = {
+      difficultyChangeRate: difficultyChangeRate || 10000,
+      raftVelocity: raftVelocity || 13,
+      shipVelocity: shipVelocity || 100,
+      shipVelocityInitial: shipVelocityInitial || 100,
+      shipVelocityIncreaseFactor: shipVelocityIncreaseFactor || 1.25,
+      shipSpawnRate: shipSpawnRate || 2000,
+      shipSpawnRateIncreaseFactor: shipSpawnRateIncreaseFactor || 0.9,
     }
     localStorage.setItem('difficulty', JSON.stringify(difficulty))
   }
@@ -36,7 +23,7 @@ export class Storage {
   static get difficulty() {
     const difficulty = JSON.parse(localStorage.getItem('difficulty'))
     if (!difficulty) {
-      throw new Error('Difficulty not set')
+      this.setDifficulty({})
     }
     return difficulty
   }

@@ -17,7 +17,7 @@ export class Style {
     small: 4,
   }
 
-  static text() {
+  static body() {
     return {
       fontFamily: Style.fontFamily,
       fontSize: Style.fontSizes.title,

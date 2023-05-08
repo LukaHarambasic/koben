@@ -49,7 +49,7 @@ export class LoadingScene extends Scene {
     // })
     //TODO remove later
     this.scene.start('gameScene')
-    Storage.difficulty = 'test'
+    Storage.setDifficulty({})
     this.input.keyboard.on(
       'keydown',
       () => {
