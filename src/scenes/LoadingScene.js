@@ -10,6 +10,7 @@ export class LoadingScene extends Scene {
     // global asset loading
     this.load.image('canal', './graphics/canal.png')
     this.load.image('raft', './graphics/raft.png')
+    this.load.image('boat', './graphics/boat.png')
     // this.load.image('tap', './graphics/tap.png')
     // this.load.image('counter', './graphics/counter.png')
     // this.load.image('bretzel', './graphics/bretzel.png')

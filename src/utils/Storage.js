@@ -5,21 +5,29 @@ export class Storage {
       case 'medium':
         difficulty = {
           speed: 6,
+          shipVelocity: 60,
+          shipMaxVelocity: 60,
         }
         break
       case 'hard':
         difficulty = {
           speed: 3,
+          shipVelocity: 60,
+          shipMaxVelocity: 60,
         }
         break
       case 'student':
         difficulty = {
           speed: 1,
+          shipVelocity: 60,
+          shipMaxVelocity: 60,
         }
         break
       default: // easy
         difficulty = {
           raftVelocity: 10,
+          shipVelocity: 100,
+          shipMaxVelocity: 150,
         }
     }
     localStorage.setItem('difficulty', JSON.stringify(difficulty))
