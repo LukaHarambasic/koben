@@ -17,7 +17,7 @@ const canvasElement = document.getElementById('game')
 export const CONFIG = {
   type: WEBGL,
   width: 640,
-  height: 960,
+  height: 720,
   playableArea: 640 - 64 * 2,
   canvas: canvasElement,
   backgroundColor: '#4488aa',

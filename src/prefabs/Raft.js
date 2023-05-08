@@ -13,6 +13,8 @@ export class Raft extends Physics.Arcade.Sprite {
 
     this.difficulty = Storage.difficulty
 
+    this.isGameOver = false
+
     this.setMaxVelocity(200, 0)
     this.setVelocityX(0)
     this.setVelocityY(0)
@@ -23,10 +25,16 @@ export class Raft extends Physics.Arcade.Sprite {
   }
 
   update() {
+    if (this.isGameOver) return
     if (this.cursors.left.isDown) {
       this.body.velocity.x -= this.difficulty.raftVelocity
     } else if (this.cursors.right.isDown) {
       this.body.velocity.x += this.difficulty.raftVelocity
     }
+  }
+
+  stop() {
+    this.isGameOver = true
+    this.setVelocityX(0)
   }
 }

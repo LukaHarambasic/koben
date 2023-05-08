@@ -13,6 +13,8 @@ export class Ship extends Physics.Arcade.Sprite {
 
     this.difficulty = Storage.difficulty
 
+    this.isGameOver = false
+
     // TODO something is off here, ships aren't moving - works without which is fine for now
     // this.setMaxVelocity(0, this.difficulty.shipMaxVelocityY)
     const speedVariance = Math.Between(0, 100)
@@ -25,9 +27,15 @@ export class Ship extends Physics.Arcade.Sprite {
   }
 
   update() {
+    if (this.isGameOver) return
     if (this.y > CONFIG.height + 64) {
       console.log('destroy')
       this.destroy()
     }
+  }
+
+  stop() {
+    this.isGameOver = true
+    this.setVelocityY(0)
   }
 }

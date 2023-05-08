@@ -1,4 +1,4 @@
-import { Scene, Math as PMath } from 'phaser'
+import { Scene, Actions, Math as PMath } from 'phaser'
 import { CONFIG } from '../main'
 import { Raft } from '../prefabs/Raft'
 import { Ship } from '../prefabs/Ship'
@@ -63,6 +63,8 @@ export class GameScene extends Scene {
   _gameOver() {
     console.log('game over')
     this.isGameOver = true
+    Actions.Call(this.shipGroup.getChildren(), (ship) => ship.stop(), this)
+    this.raft.stop()
     // TODO add animation, sound and other effects
     // this.isGameOver
     // this.scene.start('highscoreScene')
