@@ -144,6 +144,8 @@ export class GameScene extends Scene {
     Actions.Call(this.shipGroup.getChildren(), (ship) => ship.stop(), this)
     this.raft.stop()
     this.score = this._getCurrentScore()
+    Storage.currentScore = this.score
+    Storage.tryHighscore(this.score)
     this._showGameOver()
     // TODO add animation, sound and other effects
   }
@@ -153,25 +155,15 @@ export class GameScene extends Scene {
     const group = this.add.group()
     const overlay = this.add.rectangle(0, 0, CONFIG.width, CONFIG.height, '0x000000', 0.6).setOrigin(0, 0)
 
-    // TODO get text style form helper
-    // TODO add restart button
     const title = this.add.text(CONFIG.width / 2, 200, 'Game Over', Style.title()).setOrigin(0.5, 0.5)
 
-    const scoreText = this.add
-      .text(CONFIG.width / 2, 260, 'SCORE', {
-        font: '24px Arial',
-        fill: '#ffffff',
-      })
-      .setOrigin(0.5, 0.5)
+    const scoreText = this.add.text(CONFIG.width / 2, 260, 'YOUR SCORE', Style.subtitle()).setOrigin(0.5, 0.5)
     const scoreValue = this.add
-      .text(CONFIG.width / 2, 290, formatTime(this.score), {
-        font: '24px Arial',
-        fill: '#ffffff',
-      })
+      .text(CONFIG.width / 2, 290, formatTime(this.score), Style.subtitle())
       .setOrigin(0.5, 0.5)
 
     const navigationText = this.add
-      .text(CONFIG.width / 2, 400, 'Press (M) for Menu or (H) for Highscore.', Style.instruction())
+      .text(CONFIG.width / 2, CONFIG.height - 50, 'Press (M) for Menu or (H) for Highscore.', Style.instruction())
       .setOrigin(0.5, 0.5)
 
     group.addMultiple([overlay, title, scoreText, scoreValue, navigationText])

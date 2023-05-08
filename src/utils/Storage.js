@@ -29,18 +29,19 @@ export class Storage {
   }
 
   static set currentScore(value) {
-    localStorage.setItem('currentScore', value)
+    localStorage.setItem('currentScore', Number(value.toFixed(0)))
   }
 
   static get currentScore() {
-    return parseInt(localStorage.getItem('currentScore')) || 0
+    return Number(localStorage.getItem('currentScore')) || 0
   }
 
   static tryHighscore(value) {
     const highscore = JSON.parse(JSON.stringify(this.highscore))
-    highscore.push(value)
+    highscore.push(Number(value.toFixed(0)))
     highscore.sort((a, b) => b - a)
     highscore.pop()
+    console.log('highscore', highscore)
     this.highscore = highscore
     return highscore.indexOf(value)
   }
