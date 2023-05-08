@@ -9,13 +9,12 @@ import { Style } from '../utils/Style'
 export class GameScene extends Scene {
   constructor() {
     super('gameScene')
-
-    this.startTime = 0
-    this.isGameOver = false
   }
 
   create() {
-    // Important if user plays multiple matches
+    console.log('create game scene')
+    this.startTime = 0
+    this.isGameOver = false
     this.startTime = this.time.now
 
     // Background
@@ -32,6 +31,7 @@ export class GameScene extends Scene {
     // Input
     this.keyH = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.H)
     this.keyM = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.M)
+    this.keyR = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.R)
   }
 
   update() {
@@ -163,7 +163,12 @@ export class GameScene extends Scene {
       .setOrigin(0.5, 0.5)
 
     const navigationText = this.add
-      .text(CONFIG.width / 2, CONFIG.height - 50, 'Press (M) for Menu or (H) for Highscore.', Style.instruction())
+      .text(
+        CONFIG.width / 2,
+        CONFIG.height - 50,
+        'Press (R) to restart, (M) for Menu or (H) for Highscore.',
+        Style.instruction(),
+      )
       .setOrigin(0.5, 0.5)
 
     group.addMultiple([overlay, title, scoreText, scoreValue, navigationText])
@@ -181,6 +186,9 @@ export class GameScene extends Scene {
     }
     if (Input.Keyboard.JustDown(this.keyM)) {
       this.scene.start('menuScene')
+    }
+    if (Input.Keyboard.JustDown(this.keyR)) {
+      this.scene.restart()
     }
   }
 }
