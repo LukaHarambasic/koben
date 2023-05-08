@@ -1,6 +1,6 @@
 // Title: Koben
 // Author: Luka Harambasic
-// Hours: 0.5 +
+// Hours: 0.5 + 3 + 2
 // Mods: see README.md
 // Sources: see README.md
 
