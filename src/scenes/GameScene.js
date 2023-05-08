@@ -53,12 +53,12 @@ export class GameScene extends Scene {
 
   _startSpawning() {
     if (this.isGameOver) return
-    this.time.delayedCall(Storage.difficulty.shipSpawnRate, this._spawnShip, [], this)
+    this.time.delayedCall(Storage.difficulty.shipSpawnRate, this._spawnShips, [], this)
   }
 
-  _spawnShip() {
-    console.log('spawn ship')
-    const ship = new Ship(this, PMath.Between(64, CONFIG.playableArea), 'boat').setOrigin(0, 0)
+  _spawnShips() {
+    if (this.isGameOver) return
+    const ship = new Ship(this, PMath.Between(64, CONFIG.playableArea), 'boat')
     this.shipGroup.add(ship)
     this._randomShipSpawn(10)
     this._randomShipSpawn(10)
@@ -67,9 +67,10 @@ export class GameScene extends Scene {
   }
 
   _randomShipSpawn(chance) {
+    if (this.isGameOver) return
     const random = PMath.Between(1, 100)
     if (random <= chance) {
-      const ship = new Ship(this, PMath.Between(64, CONFIG.playableArea), 'boat').setOrigin(0, 0)
+      const ship = new Ship(this, PMath.Between(64, CONFIG.playableArea), 'boat')
       this.shipGroup.add(ship)
     }
   }
@@ -94,13 +95,13 @@ export class GameScene extends Scene {
     Storage.setDifficulty({ shipVelocity: Storage.difficulty.shipVelocityInitial })
     this.dificultyTimer = this.time.addEvent({
       delay: Storage.difficulty.difficultyChangeRate,
-      callback: this._updateDifficulty,
+      callback: this._increaseDifficulty,
       callbackScope: this,
       loop: true,
     })
   }
 
-  _updateDifficulty() {
+  _increaseDifficulty() {
     if (this.isGameOver) return
     console.log('increase difficulty', Storage.difficulty.shipSpawnRate, Storage.difficulty.shipSpawnRateIncreaseFactor)
     Storage.setDifficulty({

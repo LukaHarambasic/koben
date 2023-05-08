@@ -12,7 +12,7 @@
   - [] Pixel them
   - [] Background and sides
 - [] Music
-- [] Make game harder every 10 seconds
+- [x] Make game harder every 10 seconds
 - [] Fix game over: everythign should stop where it is
 
 ## Checklist
