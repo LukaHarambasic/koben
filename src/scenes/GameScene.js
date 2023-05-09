@@ -158,7 +158,7 @@ export class GameScene extends Scene {
 
   _setGameOver() {
     this.isGameOver = true
-    this.sound.add('audio_crash', { volume: 0.2 }).play()
+    this.sound.add('audio_crash', { volume: 0.1 }).play()
     Actions.Call(this.shipGroup.getChildren(), (ship) => ship.stop(), this)
     this.raft.stop()
     Storage.currentScore = this.score

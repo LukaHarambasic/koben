@@ -17,6 +17,7 @@
 - [x] Adjust hitbox of boat
 - [] Adjust styling
 - [] Add content on story scene
+- [] Optional: Explosion
 - [] Optional: Add police boat
 - [] Optional: Add ferry
 

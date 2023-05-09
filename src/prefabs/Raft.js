@@ -5,7 +5,7 @@ import { Storage } from '../utils/Storage'
 export class Raft extends Physics.Arcade.Sprite {
   constructor(scene) {
     // TODO make height more dynamic
-    super(scene, CONFIG.width / 2, CONFIG.height - 48, 'raft')
+    super(scene, CONFIG.width / 2, CONFIG.height - 48, 'raft', 'idle')
 
     this.parentScene = scene
     this.parentScene.add.existing(this)
@@ -29,6 +29,13 @@ export class Raft extends Physics.Arcade.Sprite {
 
   update() {
     if (this.isGameOver) return
+    if (this.body.velocity.x > 0) {
+      this.setTexture('raft', 'right')
+    } else if (this.body.velocity.x < 0) {
+      this.setTexture('raft', 'left')
+    } else {
+      this.setTexture('raft', 'idle')
+    }
     if (this.cursors.left.isDown) {
       this.body.velocity.x -= this.difficulty.raftVelocity
     } else if (this.cursors.right.isDown) {

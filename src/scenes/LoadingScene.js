@@ -11,13 +11,12 @@ export class LoadingScene extends Scene {
     // global asset loading
     this.load.image('water', './graphics/water.png')
     this.load.image('canal', './graphics/canal.png')
-    this.load.image('raft', './graphics/raft.png')
     this.load.image('ship_black', './graphics/ship_black.png')
     this.load.image('ship_blue', './graphics/ship_blue.png')
     this.load.image('ship_green', './graphics/ship_green.png')
     this.load.image('ship_pink', './graphics/ship_pink.png')
     this.load.image('ship_red', './graphics/ship_red.png')
-    // this.load.atlas('xyz', './graphics/spritesheet.png', './graphics/sprites.json')
+    this.load.atlas('raft', './graphics/spritesheet.png', './graphics/sprites.json')
     // Audio
     this.load.audio('audio_background', './audio/background.mp3')
     this.load.audio('audio_crash', './audio/crash_with_cat.mp3')
