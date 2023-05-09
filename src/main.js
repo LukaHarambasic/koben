@@ -1,6 +1,7 @@
 // Title: Koben
 // Author: Luka Harambasic
-// Hours: 0.5 + 3 + 2
+// Hours: 0.5 + 3 + 2 -
+// Game logic and scenes were down after a few hours, got lost in creating the graphics
 // Mods: see README.md
 // Sources: see README.md
 
