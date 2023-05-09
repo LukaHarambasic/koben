@@ -8,6 +8,8 @@ export class StoryScene extends Scene {
   }
 
   create() {
+    this.add.tileSprite(0, 0, CONFIG.width, CONFIG.height, 'background_story').setOrigin(0, 0)
+
     this.add.text(CONFIG.width / 2, 50, 'Story', Style.title()).setOrigin(0.5, 0.5)
 
     this.add.text(CONFIG.width / 2, CONFIG.height - 50, 'Press (M) for Menu.', Style.instruction()).setOrigin(0.5, 0.5)

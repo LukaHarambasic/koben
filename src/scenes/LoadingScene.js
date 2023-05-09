@@ -10,6 +10,7 @@ export class LoadingScene extends Scene {
   preload() {
     // global asset loading
     this.load.image('water', './graphics/water.png')
+    this.load.image('background_story', './graphics/background_story.png')
     this.load.image('canal', './graphics/canal.png')
     this.load.image('ship_black', './graphics/ship_black.png')
     this.load.image('ship_blue', './graphics/ship_blue.png')

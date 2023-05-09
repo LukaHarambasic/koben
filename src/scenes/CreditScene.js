@@ -14,6 +14,7 @@ export class CreditScene extends Scene {
 
     this.add.text(CONFIG.width / 2, CONFIG.height - 50, 'Press (M) for Menu.', Style.instruction()).setOrigin(0.5, 0.5)
 
+    // TODO add https://giventofly.github.io/pixelit/
     const credits = [
       {
         title: 'Gentle ocean waves birdsong and gull',
