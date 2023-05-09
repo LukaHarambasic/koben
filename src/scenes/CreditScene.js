@@ -53,6 +53,20 @@ export class CreditScene extends Scene {
       },
     ]
 
+    credits.forEach((credit, i) => {
+      const y = 150 + i * 80
+      const text1 = `${credit.title}`
+      const text2 = `${credit.author} - ${credit.file}`
+      this.add.text(CONFIG.width / 2, y, text1, Style.body()).setOrigin(0.5)
+      this.add
+        .text(CONFIG.width / 2, y + 30, text2, Style.bodySmall())
+        .setOrigin(0.5)
+        .setInteractive({ useHandCursor: true })
+        .on('pointerup', function () {
+          window.open(credit.link, '_blank')
+        })
+    })
+
     // Input
     this.keyM = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.M)
   }

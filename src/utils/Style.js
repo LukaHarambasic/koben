@@ -7,6 +7,7 @@ export class Style {
   static dark = '#420FBF'
   static onDark = '#FFFFFF'
   static light = '#FFFFFF'
+  static onBackground = '#FFFFFF'
   static fontFamily = 'Arial, sans-serif'
   static fontSizes = {
     title: '32px',
@@ -22,8 +23,16 @@ export class Style {
     return {
       fontFamily: Style.fontFamily,
       fontSize: Style.fontSizes.body,
-      backgroundColor: Style.primary,
-      color: Style.onPrimary,
+      color: Style.onBackground,
+      align: 'center',
+    }
+  }
+
+  static bodySmall() {
+    return {
+      fontFamily: Style.fontFamily,
+      fontSize: Style.fontSizes.small,
+      color: Style.onBackground,
       align: 'center',
     }
   }
@@ -32,8 +41,7 @@ export class Style {
     return {
       fontFamily: Style.fontFamily,
       fontSize: Style.fontSizes.body,
-      backgroundColor: Style.primary,
-      color: Style.onPrimary,
+      color: Style.onBackground,
       align: 'left',
       fixedWidth: 520,
       wordWrap: {
