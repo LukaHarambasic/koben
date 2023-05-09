@@ -14,6 +14,9 @@ export class Ship extends Physics.Arcade.Sprite {
 
     this.isGameOver = false
 
+    this.body.setSize(22, 50)
+    this.body.setOffset(1, 2)
+
     this.setAngle(180)
     const speedVariance = Math.Between(0, 100)
     this.velocity = this.difficulty.shipVelocity + speedVariance

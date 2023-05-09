@@ -15,6 +15,9 @@ export class Raft extends Physics.Arcade.Sprite {
 
     this.isGameOver = false
 
+    this.body.setSize(60, 52)
+    this.body.setOffset(2, 2)
+
     this.setMaxVelocity(200, 0)
     this.setVelocityX(0)
     this.setVelocityY(0)

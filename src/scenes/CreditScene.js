@@ -16,6 +16,14 @@ export class CreditScene extends Scene {
 
     // https://giventofly.github.io/pixelit/
 
+    const credits = [
+      {
+        title: 'Ambient Occlusion (116bpm, d#m)',
+        author: 'tobylane',
+        link: 'https://pixabay.com/music/introoutro-adventure-of-excitement-7469/',
+      },
+    ]
+
     // Input
     this.keyM = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.M)
   }

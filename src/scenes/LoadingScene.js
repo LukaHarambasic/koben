@@ -18,6 +18,8 @@ export class LoadingScene extends Scene {
     this.load.image('ship_green', './graphics/ship_green.png')
     this.load.image('ship_pink', './graphics/ship_pink.png')
     this.load.image('ship_red', './graphics/ship_red.png')
+    // Audio
+    this.load.audio('audio_background', './audio/background.mp3')
     // this.load.image('tap', './graphics/tap.png')
     // this.load.image('counter', './graphics/counter.png')
     // this.load.image('bretzel', './graphics/bretzel.png')
@@ -37,6 +39,9 @@ export class LoadingScene extends Scene {
   }
 
   create() {
+    const music = this.sound.add('audio_background', { loop: true })
+    music.play()
+
     this.water = this.add.tileSprite(0, 0, CONFIG.width, CONFIG.height, 'water').setOrigin(0, 0)
 
     this.add.text(CONFIG.width / 2, 50, 'Koben', Style.title()).setOrigin(0.5, 0.5)

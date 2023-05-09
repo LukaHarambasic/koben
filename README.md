@@ -7,14 +7,16 @@
 ## Tasks
 
 - [] Improve graphics
-  - [] Add more
+  - [x] Add more
   - [] Animate them
-  - [] Pixel them
+  - [x] Pixel them
   - [x] Background and sides
 - [] Music
 - [x] Make game harder every 10 seconds
 - [x] Fix game over: everythign should stop where it is
-- [] Adjust hitbox of boat
+- [x] Adjust hitbox of boat
+- [] Optional: Add police boat
+- [] Optional: Add ferry
 
 ## Checklist
 
@@ -33,13 +35,13 @@
   - [] Include one or more animated characters that use a texture atlas (5)
   - [x] Simulate scrolling with a tileSprite (or equivalent means) (5)
   - [x] Implement proper collision detection (via Arcade Physics or a custom routine) (5)
-  - [] Have looping background music (5)
+  - [x] Have looping background music (5)
   - [] Use a minimum of three sound effects for key mechanics, UI, and/or significant events appropriate to your game design (5)
   - [x] Use randomness to generate escalating challenge, e.g. terrain, pickups, etc. (5)
   - [x] Include some metric of accomplishment that a player can improve over time, e.g., score, survival time, etc. (5)
   - [x] Be theoretically endless (5)
   - [x] Be playable for at least 15 seconds for a new player of low to moderate skill (5)
-  - [] Run without significant crashes or errors (5)
+  - [x] Run without significant crashes or errors (5)
   - [] Include in-game credits for all roles, assets, music, etc. (5)
   - [x] You must make all of your own visual assets (without AI assistance). It's OK to use royalty-free music/SFX.
 
