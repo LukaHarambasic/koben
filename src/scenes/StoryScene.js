@@ -11,6 +11,14 @@ export class StoryScene extends Scene {
     this.add.tileSprite(0, 0, CONFIG.width, CONFIG.height, 'background_story').setOrigin(0, 0)
 
     this.add.text(CONFIG.width / 2, 50, 'Story', Style.title()).setOrigin(0.5, 0.5)
+    this.add
+      .text(
+        CONFIG.width / 2,
+        130,
+        'Koben is based on a real life story. Back in Copenhagen I built with 6-7 friends a raft in less than 24 hours. Which became our baby. We called it Koben (danish for crowbar). Since last summer we had countless trips with friends. One of the best ideas we ever had after some beers. \n\n This game is a tribute to Koben and the good times we had/have with it. \n\n Credits to Daniel, Casper, Henry, Jan, Nicolai, Niklas and Peer.',
+        Style.bodyLong(),
+      )
+      .setOrigin(0.5, 0)
 
     this.add.text(CONFIG.width / 2, CONFIG.height - 50, 'Press (M) for Menu.', Style.instruction()).setOrigin(0.5, 0.5)
 
