@@ -10,10 +10,11 @@
   - [] Add more
   - [] Animate them
   - [] Pixel them
-  - [] Background and sides
+  - [x] Background and sides
 - [] Music
 - [x] Make game harder every 10 seconds
-- [] Fix game over: everythign should stop where it is
+- [x] Fix game over: everythign should stop where it is
+- [] Adjust hitbox of boat
 
 ## Checklist
 

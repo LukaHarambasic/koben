@@ -41,6 +41,7 @@ export class GameScene extends Scene {
       this._gameOverInput()
       return
     }
+    this.canal.tilePositionY -= 2
     this._updateScore()
     this.raft.update()
     this.physics.world.collide(this.raft, this.shipGroup, this._setGameOver, null, this)
@@ -61,30 +62,32 @@ export class GameScene extends Scene {
 
   _spawnShips() {
     if (this.isGameOver) return
-    // I hate this sip spwan x position, works for now, might change later
-    const ship = new Ship(
-      this,
-      PMath.Between(CONFIG.canal + CONFIG.shipWidth / 2, CONFIG.playableArea + CONFIG.canal - CONFIG.shipWidth / 2),
-      'boat',
-    )
-    this.shipGroup.add(ship)
-    this._randomShipSpawn(10)
-    this._randomShipSpawn(10)
-    this._randomShipSpawn(10)
+    this._createShip()
+    for (let i = 0; i < 3; i++) {
+      this._randomShipSpawn(10)
+    }
     this._startSpawning()
+    this.shipGroup.setDepth(1)
   }
 
   _randomShipSpawn(chance) {
     if (this.isGameOver) return
     const random = PMath.Between(1, 100)
     if (random <= chance) {
-      const ship = new Ship(
-        this,
-        PMath.Between(CONFIG.canal + CONFIG.shipWidth / 2, CONFIG.playableArea + CONFIG.canal - CONFIG.shipWidth / 2),
-        'boat',
-      )
-      this.shipGroup.add(ship)
+      this._createShip()
     }
+  }
+
+  _createShip() {
+    // I hate this sip spawn x-position, works for now, might change later
+    const textures = ['ship_green', 'ship_red', 'ship_blue', 'ship_black', 'ship_pink']
+    const texture = textures[PMath.Between(0, textures.length - 1)]
+    const ship = new Ship(
+      this,
+      PMath.Between(CONFIG.canal + CONFIG.shipWidth / 2, CONFIG.playableArea + CONFIG.canal - CONFIG.shipWidth / 2),
+      texture,
+    )
+    this.shipGroup.add(ship)
   }
 
   _handleScore() {

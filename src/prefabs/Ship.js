@@ -3,7 +3,7 @@ import { CONFIG } from '../main'
 import { Storage } from '../utils/Storage'
 
 export class Ship extends Physics.Arcade.Sprite {
-  constructor(scene, x = CONFIG.width / 2, texture) {
+  constructor(scene, x = CONFIG.width / 2, texture = 'ship_pink') {
     super(scene, x, -64, texture)
 
     this.parentScene = scene

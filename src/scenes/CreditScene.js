@@ -12,6 +12,8 @@ export class CreditScene extends Scene {
 
     this.add.text(CONFIG.width / 2, CONFIG.height - 50, 'Press (M) for Menu.', Style.instruction()).setOrigin(0.5, 0.5)
 
+    // https://giventofly.github.io/pixelit/
+
     // Input
     this.keyM = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.M)
   }

@@ -5,7 +5,7 @@ import { Storage } from '../utils/Storage'
 export class Raft extends Physics.Arcade.Sprite {
   constructor(scene) {
     // TODO make height more dynamic
-    super(scene, CONFIG.width / 2, CONFIG.height - 64, 'raft')
+    super(scene, CONFIG.width / 2, CONFIG.height - 48, 'raft')
 
     this.parentScene = scene
     this.parentScene.add.existing(this)
