@@ -14,6 +14,10 @@ export class MenuScene extends Scene {
     this.add.text(CONFIG.width / 2, 50, 'Koben', Style.title()).setOrigin(0.5, 0.5)
     this.add.text(CONFIG.width / 2, 90, 'Rafting in Copenhagen', Style.subtitle()).setOrigin(0.5, 0.5)
 
+    this.add.text(CONFIG.width / 2, 250, 'Use ← and → to navigate your raft', Style.body()).setOrigin(0.5, 0.5)
+    this.add.text(CONFIG.width / 2, 280, "Don't colide with other boats", Style.body()).setOrigin(0.5, 0.5)
+    this.add.text(CONFIG.width / 2, 310, 'The longer you survive the better', Style.body()).setOrigin(0.5, 0.5)
+
     this.add
       .text(
         CONFIG.width / 2,

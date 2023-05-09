@@ -23,8 +23,6 @@ export class LoadingScene extends Scene {
     // this.load.audio('sfx4', './audio/sfx4.wav')
     // this.load.audio('sfx_background', './audio/background.mp3')
 
-    // loading bar
-    // see: https://rexrainbow.github.io/phaser3-rex-notes/docs/site/loader/
     let loadingBar = this.add.graphics()
     this.load.on('progress', (value) => {
       loadingBar.clear()
