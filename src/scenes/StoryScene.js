@@ -2,15 +2,17 @@ import { Scene, Input } from 'phaser'
 import { CONFIG } from '../main'
 import { Style } from '../utils/Style'
 
-export class CreditScene extends Scene {
+export class StoryScene extends Scene {
   constructor() {
-    super('creditScene')
+    super('storyScene')
   }
 
   create() {
-    this.add.text(CONFIG.width / 2, 50, 'Credits', Style.title()).setOrigin(0.5, 0.5)
+    this.add.text(CONFIG.width / 2, 50, 'Story', Style.title()).setOrigin(0.5, 0.5)
 
     this.add.text(CONFIG.width / 2, CONFIG.height - 50, 'Press (M) for Menu.', Style.instruction()).setOrigin(0.5, 0.5)
+
+    // TODO tell the story and add some pictures
 
     // Input
     this.keyM = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.M)

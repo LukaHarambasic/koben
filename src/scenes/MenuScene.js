@@ -9,21 +9,16 @@ export class MenuScene extends Scene {
   }
 
   create() {
+    Storage.setDifficulty({})
+
     this.add.text(CONFIG.width / 2, 50, 'Koben', Style.title()).setOrigin(0.5, 0.5)
-    this.add
-      .text(
-        CONFIG.width / 2,
-        90,
-        'Welcome to your raft adventure in Copenhagen. You are the captain of the infamous raft called "Koben". You built in with your seven friends in less than a day. And now you are enyoing life. But the canals of Copenhagen are dangerous. Mayn tourists drive reckless with their rented boat. Not to forget about the police which requires you to have life vests on board. And the huge ferries crossing the canal from one side to another. So I hope your are prepared to protect your friends. To survice. Good luck! You will need it.',
-        Style.bodyLong(),
-      )
-      .setOrigin(0.5, 0)
+    this.add.text(CONFIG.width / 2, 90, 'Rafting in Copenhagen', Style.subtitle()).setOrigin(0.5, 0.5)
 
     this.add
       .text(
         CONFIG.width / 2,
         CONFIG.height - 50,
-        'Press (Space) to Start, (H) for Highscore or (C) for Credits.',
+        'Press (Space) to Start, (H) for Highscore, (C) for Credits or (S) for the Story.',
         Style.instruction(),
       )
       .setOrigin(0.5, 0.5)
@@ -32,6 +27,7 @@ export class MenuScene extends Scene {
     this.keySpace = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.SPACE)
     this.keyH = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.H)
     this.keyC = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.C)
+    this.keyS = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.S)
   }
 
   update() {
@@ -47,6 +43,9 @@ export class MenuScene extends Scene {
     }
     if (Input.Keyboard.JustDown(this.keyC)) {
       this.scene.start('creditScene')
+    }
+    if (Input.Keyboard.JustDown(this.keyS)) {
+      this.scene.start('storyScene')
     }
   }
 }

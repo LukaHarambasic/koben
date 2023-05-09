@@ -10,6 +10,7 @@ import { MenuScene } from './scenes/MenuScene'
 import { GameScene } from './scenes/GameScene'
 import { HighscoreScene } from './scenes/HighscoreScene'
 import { CreditScene } from './scenes/CreditScene'
+import { StoryScene } from './scenes/StoryScene'
 import './style.css'
 
 const canvasElement = document.getElementById('game')
@@ -37,7 +38,7 @@ export const CONFIG = {
       },
     },
   },
-  scene: [LoadingScene, MenuScene, GameScene, HighscoreScene, CreditScene],
+  scene: [LoadingScene, MenuScene, GameScene, HighscoreScene, CreditScene, StoryScene],
 }
 
 new Game(CONFIG)
