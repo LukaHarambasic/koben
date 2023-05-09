@@ -147,7 +147,7 @@ export class GameScene extends Scene {
           targets: this.textDifficultyIncrease,
           alpha: 0,
           duration: 1000,
-          ease: 'Linear',
+          ease: 'Square',
           onComplete: () => {},
         })
       },
@@ -158,6 +158,7 @@ export class GameScene extends Scene {
 
   _setGameOver() {
     this.isGameOver = true
+    this.sound.add('audio_crash', { volume: 0.2 }).play()
     Actions.Call(this.shipGroup.getChildren(), (ship) => ship.stop(), this)
     this.raft.stop()
     Storage.currentScore = this.score
@@ -193,13 +194,18 @@ export class GameScene extends Scene {
 
   _gameOverInput() {
     if (!this.isGameOver) return
+    const splashs = ['audio_splash1', 'audio_splash2', 'audio_splash3', 'audio_splash4']
+    const randomSplash = splashs[PMath.Between(0, splashs.length - 1)]
     if (Input.Keyboard.JustDown(this.keyH)) {
+      this.sound.add(randomSplash, { volume: 0.2 }).play()
       this.scene.start('highscoreScene')
     }
     if (Input.Keyboard.JustDown(this.keyM)) {
+      this.sound.add(randomSplash, { volume: 0.2 }).play()
       this.scene.start('menuScene')
     }
     if (Input.Keyboard.JustDown(this.keyR)) {
+      this.sound.add(randomSplash, { volume: 0.2 }).play()
       this.scene.restart()
     }
   }

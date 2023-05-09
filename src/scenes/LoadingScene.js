@@ -1,5 +1,4 @@
-import { Scene, Input } from 'phaser'
-import { Storage } from '../utils/Storage'
+import { Scene, Input, Math as PMath } from 'phaser'
 import { CONFIG } from '../main'
 import { Style } from '../utils/Style'
 
@@ -18,17 +17,14 @@ export class LoadingScene extends Scene {
     this.load.image('ship_green', './graphics/ship_green.png')
     this.load.image('ship_pink', './graphics/ship_pink.png')
     this.load.image('ship_red', './graphics/ship_red.png')
+    // this.load.atlas('xyz', './graphics/spritesheet.png', './graphics/sprites.json')
     // Audio
     this.load.audio('audio_background', './audio/background.mp3')
-    // this.load.image('tap', './graphics/tap.png')
-    // this.load.image('counter', './graphics/counter.png')
-    // this.load.image('bretzel', './graphics/bretzel.png')
-    // this.load.atlas('beer', './graphics/spritesheet.png', './graphics/sprites.json')
-    // this.load.audio('sfx1', './audio/sfx1.wav')
-    // this.load.audio('sfx2', './audio/sfx2.wav')
-    // this.load.audio('sfx3', './audio/sfx3.wav')
-    // this.load.audio('sfx4', './audio/sfx4.wav')
-    // this.load.audio('sfx_background', './audio/background.mp3')
+    this.load.audio('audio_crash', './audio/crash_with_cat.mp3')
+    this.load.audio('audio_splash1', './audio/fish_flapping.wav')
+    this.load.audio('audio_splash2', './audio/sea_water_splash.wav')
+    this.load.audio('audio_splash3', './audio/splash.mp3')
+    this.load.audio('audio_splash4', './audio/water_splash.wav')
 
     let loadingBar = this.add.graphics()
     this.load.on('progress', (value) => {
@@ -39,10 +35,9 @@ export class LoadingScene extends Scene {
   }
 
   create() {
-    const music = this.sound.add('audio_background', { loop: true })
-    music.play()
+    this.sound.add('audio_background', { volume: 0.2, loop: true }).play()
 
-    this.water = this.add.tileSprite(0, 0, CONFIG.width, CONFIG.height, 'water').setOrigin(0, 0)
+    this.add.tileSprite(0, 0, CONFIG.width, CONFIG.height, 'water').setOrigin(0, 0)
 
     this.add.text(CONFIG.width / 2, 50, 'Koben', Style.title()).setOrigin(0.5, 0.5)
     this.add.text(CONFIG.width / 2, 90, 'Rafting in Copenhagen', Style.subtitle()).setOrigin(0.5, 0.5)
@@ -66,7 +61,6 @@ export class LoadingScene extends Scene {
     //   frameRate: 3,
     //   repeat: -1,
     // })
-    //TODO remove later
 
     this.add
       .text(CONFIG.width / 2, CONFIG.height - 50, 'Press (Space) to continue.', Style.instruction())
@@ -82,6 +76,9 @@ export class LoadingScene extends Scene {
 
   _handleInput() {
     if (Input.Keyboard.JustDown(this.keySpace)) {
+      const splashs = ['audio_splash1', 'audio_splash2', 'audio_splash3', 'audio_splash4']
+      const randomSplash = splashs[PMath.Between(0, splashs.length - 1)]
+      this.sound.add(randomSplash, { volume: 0.2 }).play()
       this.scene.start('menuScene')
     }
   }
