@@ -12,6 +12,7 @@ import { GameScene } from './scenes/GameScene'
 import { HighscoreScene } from './scenes/HighscoreScene'
 import { CreditScene } from './scenes/CreditScene'
 import { StoryScene } from './scenes/StoryScene'
+import { Style } from './utils/Style'
 import './style.css'
 
 const canvasElement = document.getElementById('game')
@@ -24,7 +25,7 @@ export const CONFIG = {
   playableArea: 640 - 64 * 2,
   shipWidth: 24,
   canvas: canvasElement,
-  backgroundColor: '#4488aa',
+  backgroundColor: Style.dark,
   // Maybe enable if needed, but centering with CSS seems to work better
   // scale: {
   //   autoCenter: Scale.CENTER_BOTH,

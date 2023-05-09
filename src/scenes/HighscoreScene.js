@@ -10,6 +10,8 @@ export class HighscoreScene extends Scene {
   }
 
   create() {
+    this.water = this.add.tileSprite(0, 0, CONFIG.width, CONFIG.height, 'water').setOrigin(0, 0)
+
     this.add.text(CONFIG.width / 2, 50, 'Highscore', Style.title()).setOrigin(0.5, 0.5)
 
     this.add.text(CONFIG.width / 2, 120, 'YOUR SCORE', Style.subtitle()).setOrigin(0.5, 0.5)

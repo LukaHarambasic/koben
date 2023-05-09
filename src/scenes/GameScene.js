@@ -20,7 +20,9 @@ export class GameScene extends Scene {
     this.startTime = this.time.now
 
     // Background
+    this.water = this.add.tileSprite(0, 0, CONFIG.width, CONFIG.height, 'water').setOrigin(0, 0)
     this.canal = this.add.tileSprite(0, 0, CONFIG.width, CONFIG.height, 'canal').setOrigin(0, 0)
+
     this.physics.world.setBounds(64, 0, CONFIG.playableArea, CONFIG.height)
 
     // Raft

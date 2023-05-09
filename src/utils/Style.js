@@ -4,7 +4,7 @@ export class Style {
   }
   static primary = '#FAE44C'
   static onPrimary = '#000000'
-  static dark = '#000000'
+  static dark = '#420FBF'
   static onDark = '#FFFFFF'
   static light = '#FFFFFF'
   static fontFamily = 'Arial, sans-serif'
