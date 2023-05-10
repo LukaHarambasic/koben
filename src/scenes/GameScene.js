@@ -93,7 +93,7 @@ export class GameScene extends Scene {
   }
 
   _handleScore() {
-    this.scoreText = this.add.text(10, 10, '', { font: '24px Arial', fill: '#ffffff' })
+    this.scoreText = this.add.text(CONFIG.width / 2, 55, '', Style.highscoreItem()).setOrigin(0.5, 0.5)
     this.scoreTimer = this.time.addEvent({
       delay: 10,
       callback: this._updateScore,
@@ -127,7 +127,7 @@ export class GameScene extends Scene {
       loop: true,
     })
     this.textDifficultyIncrease = this.add
-      .text(CONFIG.width / 2, 40, 'FASTER', { font: '24px Arial', fill: '#ffffff' })
+      .text(CONFIG.width / 2, 30, 'FASTER', Style.subtitle())
       .setOrigin(0.5, 0.5)
       .setDepth(1)
       .setAlpha(0)

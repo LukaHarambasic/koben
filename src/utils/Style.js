@@ -8,7 +8,7 @@ export class Style {
   static onDark = '#FFFFFF'
   static light = '#FFFFFF'
   static onBackground = '#FFFFFF'
-  static fontFamily = 'Arial, sans-serif'
+  static fontFamily = "'Open Sans', sans-serif"
   static fontSizes = {
     title: '32px',
     body: '24px',
