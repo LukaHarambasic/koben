@@ -1,9 +1,15 @@
 // Title: Koben
 // Author: Luka Harambasic
-// Hours: 0.5 + 3 + 2 -
-// Game logic and scenes were down after a few hours, got lost in creating the graphics
-// Mods: see README.md
-// Sources: see README.md
+// Hours: 16
+//     Game logic and scenes were done after 6-7 hours, but than I got lost in creating the pixel art (love it)
+// Technical tilt:
+//     My static classes Storage & Style.
+//     I also like that the logic in GameScene.js is well encapsuled in functions and therefore very readble.
+//     Not to forget the whole set up with Vite and a GitHub action for deployment.
+// Style tilt:
+//     I love the raft and boat PixelArt I created, not happy with the background and the animations.
+//     Another highlight is that it is based on a raft I built with my friends in Copenhagen.
+//     The wooly controlls, as it really behaves like a raft on the water.
 
 import { Game, WEBGL } from 'phaser'
 import { LoadingScene } from './scenes/LoadingScene'
@@ -26,10 +32,6 @@ export const CONFIG = {
   shipWidth: 24,
   canvas: canvasElement,
   backgroundColor: Style.dark,
-  // Maybe enable if needed, but centering with CSS seems to work better
-  // scale: {
-  //   autoCenter: Scale.CENTER_BOTH,
-  // },
   physics: {
     default: 'arcade',
     arcade: {

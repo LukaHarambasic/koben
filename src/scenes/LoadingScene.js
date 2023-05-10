@@ -39,9 +39,9 @@ export class LoadingScene extends Scene {
 
     this.add.tileSprite(0, 0, CONFIG.width, CONFIG.height, 'water').setOrigin(0, 0)
 
+    // Content
     this.add.text(CONFIG.width / 2, 50, 'Koben', Style.title()).setOrigin(0.5, 0.5)
     this.add.text(CONFIG.width / 2, 90, 'Rafting in Copenhagen', Style.subtitle()).setOrigin(0.5, 0.5)
-
     this.add
       .text(
         CONFIG.width / 2,
@@ -50,21 +50,21 @@ export class LoadingScene extends Scene {
         Style.bodyLong(),
       )
       .setOrigin(0.5, 0)
-
-    // this.anims.create({
-    //   key: 'empty',
-    //   frames: this.anims.generateFrameNames('beer', {
-    //     prefix: 'beer_empty_',
-    //     start: 0,
-    //     end: 3,
-    //   }),
-    //   frameRate: 3,
-    //   repeat: -1,
-    // })
-
     this.add
       .text(CONFIG.width / 2, CONFIG.height - 50, 'Press (Space) to continue.', Style.instruction())
       .setOrigin(0.5, 0.5)
+
+    // Animations
+    this.anims.create({
+      key: 'raft_side',
+      frames: this.anims.generateFrameNames('raft', {
+        prefix: 'raft_',
+        start: 0,
+        end: 3,
+      }),
+      frameRate: 5,
+      repeat: 0,
+    })
 
     // Input
     this.keySpace = this.input.keyboard.addKey(Input.Keyboard.KeyCodes.SPACE)
