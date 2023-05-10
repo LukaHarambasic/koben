@@ -20,10 +20,10 @@
 
 ## Checklist
 
-- [] Organization (15 points)
+- [x] Organization (15 points)
 
-  - [] Submit a link to your GitHub repository that shows a history of multiple meaningful commits with descriptive messages (5)
-  - [] Submit a playable link on GitHub pages (5)
+  - [x] Submit a link to your GitHub repository that shows a history of multiple meaningful commits with descriptive messages (5)
+  - [x] Submit a playable link on GitHub pages (5)
   - [x] In main.js (or equivalent), include a comment header with your name, game title, approximate hours spent on project, and your creative tilt justification (see below) (5)
 
 - [x] Structure and Design (75 points)
@@ -48,5 +48,3 @@
 - [x] Creative Tilt (10 points)
   - [x] ...do something technically interesting? Are you particularly proud of a programming technique you implemented? Did you look beyond the class examples and learn how to do something new? (5)
   - [x] ...have a great visual style? Does it use music or art that you're particularly proud of? Are you trying something new or clever with the endless runner form? (5)
-
-## Credits
